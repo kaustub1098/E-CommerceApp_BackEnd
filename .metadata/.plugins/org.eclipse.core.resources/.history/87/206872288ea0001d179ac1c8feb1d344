@@ -1,0 +1,78 @@
+package com.ecommerce.backend.entities;
+
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import lombok.Data;
+
+@Entity
+@Table(name="orders")
+public class OrdersEntity {
+		
+		    @Id
+		    @GeneratedValue(strategy = GenerationType.AUTO)
+		    @Column(name="id")
+		    private Integer id;
+			
+			@Column
+			@CreationTimestamp
+		    private LocalDate order_Date;
+		    @CreationTimestamp 
+			@Column
+			private LocalTime order_Time;
+		    @Column
+		    private String payment_type;
+		
+
+//		    @OneToMany(cascade = CascadeType.ALL,mappedBy = "ordersEntity")
+//		    private List<ProductEntity> productEntity;
+		   
+		    @OneToMany(cascade = CascadeType.ALL,mappedBy = "ordersEntity",fetch = FetchType.EAGER)
+		    private List<Order_items>order_items=new ArrayList<>();
+		    
+		    
+		    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+		    @JoinColumn(name = "user_Id",referencedColumnName = "id")
+		    private UsersEntity usersEntity;
+		    
+		    @OneToOne(cascade = CascadeType.ALL)
+			@JoinColumn(name="adddress_id",nullable = false)
+	        private ShippingAddressEntity shippingAddressEntity;
+
+
+			public OrdersEntity() {
+				super();
+				// TODO Auto-generated constructor stub
+			}
+
+
+
+		
+
+			
+
+			
+			
+
+
+	
+}

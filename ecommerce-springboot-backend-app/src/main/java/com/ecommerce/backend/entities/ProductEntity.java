@@ -21,6 +21,7 @@ import lombok.Setter;
 
 @Entity
 @Table(name="product_info")
+
 public class ProductEntity {
 	
 	
@@ -42,9 +43,10 @@ public class ProductEntity {
 	@Column(name = "product_stock_quantity",nullable = false)
 	private Integer product_stock_quantity;
 	
-
-
+	@Column(name="product_image_url",nullable = false)
+	private String product_image_url;
 	
+
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name="category_id",referencedColumnName = "id")
 	private ProductCategoryEntity productCategoryEntity;
@@ -54,12 +56,14 @@ public ProductEntity() {
 }
 
 public ProductEntity( String product_name, String product_description, Integer product_price,
-		Integer product_stock_quantity, DiscountEntity discountEntity, ProductCategoryEntity productCategoryEntity) {
-
+		Integer product_stock_quantity, String product_image_url, ProductCategoryEntity productCategoryEntity) {
+	super();
+	
 	this.product_name = product_name;
 	this.product_description = product_description;
 	this.product_price = product_price;
 	this.product_stock_quantity = product_stock_quantity;
+	this.product_image_url = product_image_url;
 	this.productCategoryEntity = productCategoryEntity;
 }
 
@@ -103,7 +107,13 @@ public void setProduct_stock_quantity(Integer product_stock_quantity) {
 	this.product_stock_quantity = product_stock_quantity;
 }
 
+public String getProduct_image_url() {
+	return product_image_url;
+}
 
+public void setProduct_image_url(String product_image_url) {
+	this.product_image_url = product_image_url;
+}
 
 public ProductCategoryEntity getProductCategoryEntity() {
 	return productCategoryEntity;
@@ -117,7 +127,15 @@ public void setProductCategoryEntity(ProductCategoryEntity productCategoryEntity
 public String toString() {
 	return "ProductEntity [id=" + id + ", product_name=" + product_name + ", product_description=" + product_description
 			+ ", product_price=" + product_price + ", product_stock_quantity=" + product_stock_quantity
-			 + ", productCategoryEntity=" + productCategoryEntity + "]";
+			+ ", product_image_url=" + product_image_url + ", productCategoryEntity=" + productCategoryEntity + "]";
 }
+
+
+
+
+
+
+
+
 
 }

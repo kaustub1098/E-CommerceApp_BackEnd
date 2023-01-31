@@ -1,0 +1,27 @@
+package com.ecommerce.backend.services;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ecommerce.backend.dto.ShippingAddressDTO;
+import com.ecommerce.backend.entities.ShippingAddressEntity;
+import com.ecommerce.backend.repository.ShippingAddressRespository;
+
+public class ShippingAddressService {
+	
+	private ShippingAddressRespository shippingAddressRespository;
+	
+	public ShippingAddressService(@Autowired ShippingAddressService shippingAddressService) {
+		this.shippingAddressRespository=shippingAddressRespository;
+	}
+	
+	public ShippingAddressDTO saveAddressDTO (ShippingAddressDTO address) {
+		ModelMapper mapper = new ModelMapper();
+		ShippingAddressEntity shippingAddressEntity = mapper.map(address, ShippingAddressEntity.class);
+		ShippingAddressEntity returnedShippingAddress=this.shippingAddressRespository.save(shippingAddressEntity);
+		ShippingAddressDTO returnShippingAddressDTO=mapper.map(returnedShippingAddress, ShippingAddressDTO.class);
+		
+	}
+	
+
+}

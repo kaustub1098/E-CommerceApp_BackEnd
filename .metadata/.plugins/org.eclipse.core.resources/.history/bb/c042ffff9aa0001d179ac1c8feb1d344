@@ -1,0 +1,23 @@
+package com.ecommerce.backend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.backend.services.UsersService;
+
+@RestController
+@RequestMapping("/api/v1")
+public class UserController {
+	
+	private UsersService usersService;
+	
+	public UserController(@Autowired UsersService userserService) {
+		this.usersService=userserService;
+	}
+	
+	
+	
+	
+
+}

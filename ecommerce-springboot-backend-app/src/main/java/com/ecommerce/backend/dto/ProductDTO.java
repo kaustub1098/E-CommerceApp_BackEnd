@@ -1,7 +1,6 @@
 package com.ecommerce.backend.dto;
 
-
-
+import lombok.Data;
 
 
 public class ProductDTO {
@@ -16,34 +15,27 @@ public class ProductDTO {
 		
 		private Integer product_stock_quantity;
 		
-		private String  categoryName;
+		private String product_image_url;
+		
+		private String category_id;
 		
 	
-		
-	
-
-//	private Integer category_id;
-//		
-//		private Integer discount_id;
-		
-		
 		public ProductDTO() {
 			// TODO Auto-generated constructor stub
 		}
-	
-		
-		public ProductDTO(Long id, String product_name, String product_description, Integer product_price,
-				Integer product_stock_quantity) {
-			this.id = id;
+
+
+		public ProductDTO(String product_name, String product_description, Integer product_price,
+				Integer product_stock_quantity, String product_image_url, String category_id) {
+			super();
 			this.product_name = product_name;
 			this.product_description = product_description;
 			this.product_price = product_price;
 			this.product_stock_quantity = product_stock_quantity;
-		
-			
+			this.product_image_url = product_image_url;
+			this.category_id = category_id;
 		}
 
-	
 
 		public Long getId() {
 			return id;
@@ -95,14 +87,23 @@ public class ProductDTO {
 		}
 
 
-
-		public String getCategoryName() {
-			return categoryName;
+		public String getProduct_image_url() {
+			return product_image_url;
 		}
 
 
-		public void setCategoryName(String categoryName) {
-			this.categoryName = categoryName;
+		public void setProduct_image_url(String product_image_url) {
+			this.product_image_url = product_image_url;
+		}
+
+
+		public String getCategory_id() {
+			return category_id;
+		}
+
+
+		public void setCategory_id(String category_id) {
+			this.category_id = category_id;
 		}
 
 
@@ -110,7 +111,17 @@ public class ProductDTO {
 		public String toString() {
 			return "ProductDTO [id=" + id + ", product_name=" + product_name + ", product_description="
 					+ product_description + ", product_price=" + product_price + ", product_stock_quantity="
-					+ product_stock_quantity + ", categoryName=" + categoryName + "]";
+					+ product_stock_quantity + ", product_image_url=" + product_image_url + ", category_id="
+					+ category_id + "]";
 		}
+		
+		
+
+
+
+		
+		
+	
+		
 		
 }

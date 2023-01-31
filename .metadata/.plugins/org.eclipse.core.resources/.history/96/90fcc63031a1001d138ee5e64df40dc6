@@ -1,0 +1,26 @@
+package com.ecommerce.backend.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.backend.services.ShippingAddressService;
+
+@RestController
+@RequestMapping("/api/v1")
+public class ShippingAddressController {
+	
+	private ShippingAddressService shippingAddressService;
+	
+	
+	public ShippingAddressController(@Autowired ShippingAddressService shippingAddressService) {
+		this.shippingAddressService=shippingAddressService;
+	}
+
+	
+	
+	
+	
+	
+	
+}

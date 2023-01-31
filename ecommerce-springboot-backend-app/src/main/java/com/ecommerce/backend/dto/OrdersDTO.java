@@ -21,19 +21,22 @@ public class OrdersDTO {
 	
 	private String payment_type;
 
+	private ShippingAddressDTO addressDTO;
+ 
 	public OrdersDTO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public OrdersDTO(LocalDate order_date, LocalTime orderTime, Long order_total_Price, String order_items,
-			String payment_type) {
+			String payment_type, ShippingAddressDTO addressDTO) {
 		super();
 		this.order_date = order_date;
 		this.orderTime = orderTime;
 		this.order_total_Price = order_total_Price;
 		this.order_items = order_items;
 		this.payment_type = payment_type;
+		this.addressDTO = addressDTO;
 	}
 
 	public Integer getId() {
@@ -84,12 +87,22 @@ public class OrdersDTO {
 		this.payment_type = payment_type;
 	}
 
+	public ShippingAddressDTO getAddressDTO() {
+		return addressDTO;
+	}
+
+	public void setAddressDTO(ShippingAddressDTO addressDTO) {
+		this.addressDTO = addressDTO;
+	}
+
 	@Override
 	public String toString() {
 		return "OrdersDTO [id=" + id + ", order_date=" + order_date + ", orderTime=" + orderTime
 				+ ", order_total_Price=" + order_total_Price + ", order_items=" + order_items + ", payment_type="
-				+ payment_type + "]";
+				+ payment_type + ", addressDTO=" + addressDTO + "]";
 	}
+
+	
 
 	
 

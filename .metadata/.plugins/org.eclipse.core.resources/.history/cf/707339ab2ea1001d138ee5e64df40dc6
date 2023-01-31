@@ -1,0 +1,16 @@
+package com.ecommerce.backend.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.ecommerce.backend.repository.ShippingAddressRespository;
+
+public class ShippingAddressService {
+	
+	private ShippingAddressRespository shippingAddressRespository;
+	
+	public ShippingAddressService(@Autowired ShippingAddressService shippingAddressService) {
+		this.shippingAddressRespository=shippingAddressRespository;
+	}
+	
+
+}

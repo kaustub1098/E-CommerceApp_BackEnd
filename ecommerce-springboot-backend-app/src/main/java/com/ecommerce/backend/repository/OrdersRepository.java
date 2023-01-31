@@ -9,7 +9,7 @@ import com.ecommerce.backend.entities.OrdersEntity;
 
 public interface OrdersRepository extends JpaRepository<OrdersEntity, Integer> {
 
-	@Query("SELECT e from OrdersEntity e where e.order_items=?1")
+	@Query("SELECT e from ProductEntity e where e.product_name=?1")
 	public List<OrdersEntity> showOrdersByProductName(String name);
 	
 	

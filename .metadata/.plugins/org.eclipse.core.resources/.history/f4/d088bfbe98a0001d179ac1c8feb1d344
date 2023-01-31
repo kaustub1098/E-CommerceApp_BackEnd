@@ -1,0 +1,13 @@
+package com.ecommerce.backend.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.ecommerce.backend.entities.UsersEntity;
+
+public interface UsersRepository extends JpaRepository<UsersEntity, Integer> {
+
+	@Query("DELETE from UserEntity e where e.user_first_name=?1")
+	public int deleteByName(String name);
+	
+	
+}

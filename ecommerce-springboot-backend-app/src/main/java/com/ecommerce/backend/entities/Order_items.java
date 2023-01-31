@@ -14,6 +14,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "order_items")
 public class Order_items {
@@ -27,6 +29,7 @@ public class Order_items {
 	@JoinColumn(name = "order_id",referencedColumnName = "id")
 	private OrdersEntity ordersEntity;
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name="product_id",nullable = false)
 	private ProductEntity productEntity;
